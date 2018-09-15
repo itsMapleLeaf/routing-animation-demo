@@ -19,7 +19,7 @@ const RouteContainer = posed.div({
   },
 })
 
-const AnimatedBox = posed.div({
+const AnimatedPage = posed.div({
   preEnter: {
     opacity: 0,
     translateX: 16,
@@ -38,7 +38,7 @@ const AnimatedBox = posed.div({
   },
 })
 
-const Box = styled(AnimatedBox)`
+const Page = styled(AnimatedPage)`
   width: 500px;
   height: 500px;
   padding: 1rem;
@@ -73,9 +73,9 @@ export class App extends React.Component {
 
         <PoseGroup animateOnMount preEnterPose="preEnter">
           <RouteContainer key={currentPage.key}>
-            <Box style={{ backgroundColor: currentPage.color }}>
+            <Page style={{ backgroundColor: currentPage.color }}>
               {currentPage.content}
-            </Box>
+            </Page>
           </RouteContainer>
         </PoseGroup>
       </main>
