@@ -72,7 +72,7 @@ export class App extends React.Component {
         </Nav>
 
         <PoseGroup animateOnMount preEnterPose="preEnter">
-          <RouteContainer key={this.currentPage}>
+          <RouteContainer key={currentPage.key}>
             <Box style={{ backgroundColor: currentPage.color }}>
               {currentPage.content}
             </Box>
