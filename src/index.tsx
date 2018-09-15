@@ -14,7 +14,7 @@ const RouteContainer = posed.div({
     beforeChildren: true,
   },
   exit: {
-    opacity: 0,
+    opacity: 1,
     transition: { duration, ease: "linear" },
   },
 })
