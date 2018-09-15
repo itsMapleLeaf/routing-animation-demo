@@ -59,15 +59,6 @@ export class App extends React.Component {
   @observable
   currentPage = 0
 
-  @observable
-  visible = false
-
-  componentDidMount() {
-    setInterval(() => {
-      this.visible = !this.visible
-    }, 1000)
-  }
-
   render() {
     const currentPage = this.pages[this.currentPage]
     return (
