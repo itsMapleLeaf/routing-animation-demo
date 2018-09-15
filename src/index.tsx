@@ -10,16 +10,22 @@ const duration = 250
 const RouteContainer = posed.div({
   enter: {
     opacity: 1,
-    transition: { duration, ease: "easeOut" },
+    transition: { duration, ease: "linear" },
     beforeChildren: true,
   },
   exit: {
-    opacity: 1,
-    transition: { duration, ease: "easeIn" },
+    opacity: 0,
+    transition: { duration, ease: "linear" },
   },
 })
 
-const AnimatedPage = posed.div({
+const Page = styled.div`
+  width: 500px;
+  height: 500px;
+  padding: 1rem;
+`
+
+const AnimatedPage = posed(Page)({
   preEnter: {
     opacity: 0,
     translateX: 16,
@@ -37,12 +43,6 @@ const AnimatedPage = posed.div({
     transition: { duration, ease: "easeIn" },
   },
 })
-
-const Page = styled(AnimatedPage)`
-  width: 500px;
-  height: 500px;
-  padding: 1rem;
-`
 
 const Nav = styled.nav`
   margin-bottom: 1rem;
@@ -73,9 +73,9 @@ export class App extends React.Component {
 
         <PoseGroup animateOnMount preEnterPose="preEnter">
           <RouteContainer key={currentPage.key}>
-            <Page style={{ backgroundColor: currentPage.color }}>
+            <AnimatedPage style={{ backgroundColor: currentPage.color }}>
               {currentPage.content}
-            </Page>
+            </AnimatedPage>
           </RouteContainer>
         </PoseGroup>
       </main>
